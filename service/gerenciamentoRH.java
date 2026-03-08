@@ -16,14 +16,15 @@ public class gerenciamentoRH {
         return listaFuncionarios.removeIf(f -> f.getId() == id);
     }
 
-    public void darAumento(int id, double porcentagem) {
+    public boolean darAumento(int id, double porcentagem) {
         for (funcionario f : listaFuncionarios) {
             if (f.getId() == id) {
                 double novoSalario = f.getSalario() * (1 + (porcentagem / 100));
                 f.setSalario(novoSalario);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public List<funcionario> listarTodos() {
